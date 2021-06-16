@@ -1,6 +1,7 @@
 
 import {
     changeBackgroundColor,
+    changeCountdown,
     changeTextContent,
     removeActiveClass,
     startCountdown,
@@ -21,13 +22,29 @@ let clockStarted = false;
 tabs.forEach( tab => {
     tab.addEventListener( 'click', ( e ) => {
 
+        if ( clockStarted ) {
+
+           const isConfirmed = confirm( 'Si cambia de estado mientras el timer está ON, perderá el tiempo.' )
+           
+           if ( !isConfirmed ) {
+               return;
+           }
+
+           clockStarted = false;
+           stopCountdown();
+        }
+
         const tabClicked = e.target;
-
-        removeActiveClass( tabs );
-    
-        tabClicked.classList.add( 'active' );
-
         currentTab = tabClicked.textContent;
+
+        // Changing countdown times
+        changeCountdown( currentTab );
+
+
+        // UI
+        removeActiveClass( tabs );
+
+        tabClicked.classList.add( 'active' );
 
         changeBackgroundColor( currentTab );
     })

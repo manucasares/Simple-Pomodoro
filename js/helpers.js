@@ -60,3 +60,24 @@ function tick ( time ) {
 
     countdown.innerHTML = `${ minutes }:${ seconds }`;
 }
+
+export function changeCountdown ( tab ) {
+    
+    switch ( tab.trim() ) {
+
+        case 'Pomodoro':
+            countdown.innerHTML = '25:00';
+            break;
+
+        case 'Short Break':
+            countdown.innerHTML = '05:00';
+            break;
+
+        case 'Long Break':
+            countdown.innerHTML = '15:00';
+            break;
+
+        default:
+            break;
+    }
+}
