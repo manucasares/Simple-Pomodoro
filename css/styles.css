@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --current-clr: hsl(2, 66%, 58%);
+
+    /* Font Sizes */
+    --state-fz: clamp(16px, 2.5vw, 18px);
+    --countdown-fz: clamp(25px, 8vw, 75px);
+    --start-stop-fz: clamp(20px, 3vw, 32px);
+}
+
+body {
+    background-color: var(--current-clr);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 1s ease;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(400px, 55%, 1200px);
+    padding: 3rem;
+    background-color: hsla(0, 0%, 100%, 0.15);
+    border-radius: 3px;
+    text-align: center;
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.2rem;
+}
+
+.tab {
+    background-color: transparent;
+    color: white;
+    font-size: var(--state-fz);
+}
+
+.tab.active {
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, .3);
+    padding: .2rem .4rem;
+    border-radius: 5px;
+}
+
+.countdown-container {
+    font-size: var(--countdown-fz);
+    font-weight: 600;
+}
+
+.btn.start-stop {
+    width: 50%;
+    background-color: #fff;
+    padding: .75rem 0 1.1rem;
+    letter-spacing: .2rem;
+    color: var(--current-clr);
+    text-transform: uppercase;
+    font-size: var(--start-stop-fz);
+    font-weight: bold;
+    box-shadow: 0 4px 2px -2px rgb(114, 114, 114);
+}
+
+.btn.start-stop.pressed {
+    padding: .75rem 0;
+    box-shadow: none;
+}
