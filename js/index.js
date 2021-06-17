@@ -8,12 +8,10 @@ import {
     stopCountdown } from "./helpers.js";
 
 
-const clock_audio = document.querySelector( '#clock_audio' ); 
-
+const startClockAudio = new Audio( '../assets/hit-clock' );
 
 const tabs = document.querySelectorAll( '.btn.tab' ); 
 const start_stop_btn = document.querySelector( '#start_stop' ); 
-
 
 let currentTab = 'Pomodoro';
 let clockStarted = false;
@@ -53,7 +51,7 @@ tabs.forEach( tab => {
 // Countdown Timer
 start_stop_btn.addEventListener( 'click', ( e ) => {
     
-    clock_audio.play();
+    startClockAudio.play();
 
     let clock_text;
 
